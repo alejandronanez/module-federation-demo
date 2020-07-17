@@ -1,9 +1,23 @@
 {
   "name": "navigation",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "echo 'I am the Navigation...'"
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --liveReload"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.6",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "7.9.4",
+    "babel-loader": "8.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "5.0.0-beta.20",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.11.0"
+  },
+  "dependencies": {
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
   }
 }

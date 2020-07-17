@@ -3,10 +3,15 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 
 module.exports = {
   output: {
-    publicPath: 'http://localhost:3000/',
+    publicPath: 'http://localhost:3002/',
   },
+
   devServer: {
-    port: 3000,
+    port: 3002,
+  },
+
+  resolve: {
+    extensions: ['.jsx', '.js', '.json'],
   },
   module: {
     rules: [
@@ -19,17 +24,16 @@ module.exports = {
       },
     ],
   },
+
   plugins: [
     new ModuleFederationPlugin({
-      name: 'blog',
-      library: { type: 'var', name: 'blog' },
+      name: 'navigation',
+      library: { type: 'var', name: 'navigation' },
       filename: 'remoteEntry.js',
-      remotes: {
-        designSystem: 'designSystem',
-        navigation: 'navigation',
+      exposes: {
+        './Navigation': './src/components/Navigation',
       },
-      exposes: {},
-      shared: ['react', 'react-dom'],
+      shared: ['react'],
     }),
     new HtmlWebPackPlugin({
       template: './src/index.html',
