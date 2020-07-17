@@ -8,11 +8,10 @@ const Navigation = React.lazy(() => import('navigation/Navigation'));
 const App = () => {
   return (
     <div>
-      I am the blog
       <React.Suspense fallback={<div>Loading...</div>}>
         <Navigation />
-        <Button>I am the button</Button>
-        <Avatar>I am the button</Avatar>
+        <Button>I am the button from another remote - localhost:3001</Button>
+        <p>I am a paragraph from localhost:3000</p>
       </React.Suspense>
     </div>
   );
